@@ -5,7 +5,7 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  parser: '@typescript-eslint/parser',
+  parser: 'esprima', // 'esprima' is default parser for eslint
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -16,7 +16,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:import/recommended',
-    'plugin:import/typescript',
     'plugin:prettier/recommended', // Add plugin:prettier/recommended as the last extension
     // 'prettier/@typescript-eslint', // prettier/@typescript-eslint has been removed in eslint-config-prettier v8.0.0.
   ],
@@ -30,7 +29,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: ['packages/**/tsconfig*.json'],
+        project: ['packages/**/tsconfig?(.node).json'],
         ecmaVersion: 'latest',
         sourceType: 'module',
         ecmaFeatures: {

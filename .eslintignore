@@ -1,6 +1,7 @@
 node_modules
+yarn.lock
+package-lock.json
 build
 dist
 coverage
-*lock*
-.eslint*
+.eslintrc?(.js|.cjs|.json|.yml|.yaml)
